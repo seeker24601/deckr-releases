@@ -11,7 +11,15 @@ The source development repository is private. This repository holds public relea
 3. Allow first-launch setup to finish. An internet connection is required to download Python and runtime dependencies.
 4. Configure your own model provider in the application. Rook is included.
 
-Windows and Intel Mac downloads are not available in this release. Existing development checkouts are separate installations; the downloadable app does not import their credentials, conversations, or memory.
+## Windows x64 preview
+
+1. Download and run `deckr-windows-x64.exe`. Choose an installation folder when prompted.
+2. Open deckr from the Start menu. First launch downloads Python and runtime dependencies, then restarts the app.
+3. Configure your model provider in the application. Rook is included.
+
+The installer is unsigned and may trigger Windows SmartScreen. Application state lives in `%APPDATA%/deckr`, separately from the installation folder.
+
+Intel Mac and Windows ARM builds are unavailable. Existing development checkouts remain separate. The downloaded app does not import their credentials, conversations, or memory.
 
 ## Add companions
 
@@ -21,6 +29,6 @@ Companions share the desktop client, with separate instructions, conversations, 
 
 ## Verification and updates
 
-Every release includes `release.json` and `SHA256SUMS`. On macOS, run `shasum -a 256 <downloaded-file>` and compare its result with the published checksum. A checksum checks the file contents; it is not a code signature.
+Every release includes `release.json` and `SHA256SUMS`. On macOS, run `shasum -a 256 <downloaded-file>` and compare its result with the published checksum. On Windows, run `Get-FileHash <downloaded-file> -Algorithm SHA256` in PowerShell. Compare the result with `SHA256SUMS`. Checksums verify file contents; platform signing remains separate.
 
 The latest client link follows the latest published release. Client updates are manual for this preview; built-in Hermes update and repair do not replace the Deckr runtime. Companion links identify exact package versions.
